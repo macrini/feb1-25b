@@ -112,3 +112,9 @@ jobs:
               with:
                   name: dist
                   failOnError: false
+
+            # Append the URL to the job summary
+            - name: Write Deployment URL to Summary
+              run: |
+                  echo "## Deployed Site" >> $GITHUB_STEP_SUMMARY
+                  echo "[Visit your site](${{ needs.prepare.outputs.public_url }})" >> $GITHUB_STEP_SUMMARY
